@@ -2,7 +2,6 @@ import React from "react";
 import type { AppDispatch, RootState } from "../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { lastUpdatedThunk } from "./lastUpdatedThunk";
-import arrow from "/popular.svg";
 import styles from "./LastUpdate.module.css";
 
 const LastUpdated = () => {

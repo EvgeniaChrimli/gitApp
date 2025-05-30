@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+const path = require("path");
 const app = express();
 const PORT = 5000;
 
@@ -9,6 +10,12 @@ app.listen(PORT, () => {
 });
 
 app.use(cors());
+
+app.use(express.static(path.join(__dirname, "..", "gitApp", "build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "gitApp", "build", "index.html"));
+});
 
 app.get("/api/github/:endpoint(*)", async (req, res) => {
   const endpoint = req.params[0];

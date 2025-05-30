@@ -23,7 +23,7 @@ const Header = () => {
     }
     return words_arr[1];
   }
-  const res = normalize_count_form(count, [
+  const namePrefiks = normalize_count_form(count, [
     "репозитоий",
     "репозитория",
     "репозиториев",
@@ -35,7 +35,7 @@ const Header = () => {
           <div className={styles.logo}>LOGO.</div>
           <div className={styles.favorites}>
             <p className={styles.desktop}>
-              В избранном {count} {res}
+              В избранном {count} {namePrefiks}
             </p>
             <p className={styles.mobile}>Избранное</p>
             <Link to="favorites">

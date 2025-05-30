@@ -1,6 +1,5 @@
 import { Outlet } from "react-router";
 import Header from "./Header/Header";
-import React from "react";
 import "../index.css";
 
 const Lauout = () => {
