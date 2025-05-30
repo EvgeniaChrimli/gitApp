@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poiret+One&display=swap");
+:root {
+  --bg-color: #ffffff;
+  --text-color: black;
+  --font-pt-sans: "PT Sans", sans-serif;
+  --font-pointer-one: "Poiret One", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.dark {
+  --bg-color: #1a1a1a;
+  --text-color: white;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
