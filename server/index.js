@@ -7,7 +7,7 @@ const PORT = 5000;
 
 app.use(
   cors({
-    origin: "https://git-app-beob.vercel.app",
+    origin: "https://git-app-kappa.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
