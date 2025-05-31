@@ -5,11 +5,21 @@ const path = require("path");
 const app = express();
 const PORT = 5000;
 
+const allowedOrigins = [
+  "https://git-app-beob.vercel.app",
+  "https://git-app-beob-git-main-evgenias-projects-2005d1f2.vercel.app",
+  "https://git-app-beob-fivq5ie3f-evgenias-projects-2005d1f2.vercel.app",
+];
+
 app.use(
   cors({
-    origin: "https://git-app-kappa.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
   })
 );
 
