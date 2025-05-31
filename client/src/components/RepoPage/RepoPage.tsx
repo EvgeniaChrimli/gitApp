@@ -24,7 +24,9 @@ const RepoPage = () => {
   React.useEffect(() => {
     const fetchReadme = async () => {
       try {
-        const res = await fetch(`/api/github/repos/${owner}/${repo}/readme`);
+        const res = await fetch(
+          `https://git-app-kappa.vercel.app/api/github/repos/${owner}/${repo}/readme`
+        );
         const data = await res.json();
         const decoded = atob(data.content);
         setReadme(decoded);

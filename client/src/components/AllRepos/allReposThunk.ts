@@ -11,7 +11,7 @@ export const allReposThunk = createAsyncThunk<RepoType[], ThyunkArg>(
   async ({ page, per_page }, thunkAPI) => {
     try {
       const responce = await fetch(
-        `/api/github/search/repositories?q=stars:>1&sort=stars&order=desc&page=${page}&per_page=${per_page}`
+        `https://git-app-kappa.vercel.app/api/github/search/repositories?q=stars:>1&sort=stars&order=desc&page=${page}&per_page=${per_page}`
       );
       if (!responce.ok) {
         return thunkAPI.rejectWithValue(
