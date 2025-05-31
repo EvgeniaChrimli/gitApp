@@ -7,10 +7,9 @@ const PORT = 5000;
 
 app.use(cors());
 
-// API маршруты — должны идти ПЕРВЫМИ
 app.get("/api/github/:endpoint(*)", async (req, res) => {
   try {
-    const endpoint = req.params.endpoint; // тут лучше req.params.endpoint, а не [0]
+    const endpoint = req.params.endpoint;
     const query = new URLSearchParams(req.query).toString();
 
     const url = `https://api.github.com/${endpoint}${query ? `?${query}` : ""}`;
@@ -29,10 +28,10 @@ app.get("/api/github/:endpoint(*)", async (req, res) => {
   }
 });
 
-app.use(express.static(path.join(__dirname, "..", "gitApp", "build")));
+app.use(express.static(path.join(__dirname, "..", "client", "build")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "gitApp", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
 });
 
 app.listen(PORT, () => {
