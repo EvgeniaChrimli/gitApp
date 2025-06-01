@@ -9,9 +9,7 @@ export const repoPageThunk = createAsyncThunk<RepoType, ThunkArgs>(
   "/repo/fetchOwnRepo",
   async ({ owner, repo }, thunkAPI) => {
     try {
-      const res = await fetch(
-        `https://git-app-kappa.vercel.app/api/github/repos/${owner}/${repo}`
-      );
+      const res = await fetch(`/api/github/repos/${owner}/${repo}`);
       if (!res.ok) {
         return thunkAPI.rejectWithValue(
           "Ошибка при получении списка репозиториев"

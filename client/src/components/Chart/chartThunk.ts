@@ -5,9 +5,7 @@ export const chartHtunk = createAsyncThunk<RepoType[]>(
   "repos/fetchDetailed",
   async (_, thunkAPI) => {
     try {
-      const responce = await fetch(
-        `https://git-app-kappa.vercel.app/api/github/search/repositories`
-      );
+      const responce = await fetch(`/api/github/search/repositories`);
       if (!responce.ok) {
         return thunkAPI.rejectWithValue("Ошибка сервера");
       }

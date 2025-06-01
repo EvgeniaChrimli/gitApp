@@ -6,7 +6,7 @@ export const lastUpdatedThunk = createAsyncThunk<RepoType[]>(
   async (_, thunkAPI) => {
     try {
       const responce = await fetch(
-        `https://git-app-kappa.vercel.app/api/github/search/repositories?q=stars:>20000&sort=updated&order=desc&per_page=4`
+        `/api/github/search/repositories?q=stars:>20000&sort=updated&order=desc&per_page=4`
       );
       if (!responce.ok) {
         return thunkAPI.rejectWithValue("Ошибка сервера");

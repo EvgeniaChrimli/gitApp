@@ -5,13 +5,7 @@ const path = require("path");
 const app = express();
 const PORT = 5000;
 
-app.use(
-  cors({
-    origin: "https://git-app-kappa.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.get("/api/github/:endpoint(*)", async (req, res) => {
   try {
@@ -34,10 +28,5 @@ app.get("/api/github/:endpoint(*)", async (req, res) => {
   }
 });
 
-app.use(express.static(path.join(__dirname, "..", "client", "build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
-});
-
+app.listen(PORT);
 module.exports = app;
